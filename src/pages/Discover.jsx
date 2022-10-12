@@ -8,14 +8,13 @@ const Discover = () => {
   const dispatch = useDispatch();
   const { activeSong, isPlaying, genreListId } = useSelector(
     (state) => state.player
-  ); // pulling player from global state
+  );
 
   const { data, isFetching, error } = useGetSongsByGenreQuery(
     genreListId || 'POP'
   );
-  const genreTitle = genres.find(({ value }) => value === genreListId)?.title; //if selected 'genreListId(value)' === 'genre.value' then we display 'genre.title'.
+  const genreTitle = genres.find(({ value }) => value === genreListId)?.title;
 
-  // console.log(data);
   if (isFetching) return <Loader title="Loading songs..." />;
 
   if (error) return <Error />;

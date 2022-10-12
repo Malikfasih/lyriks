@@ -55,7 +55,7 @@ const TopPlay = () => {
 
   useEffect(() => {
     divRef.current.scrollIntoView({ behavior: 'smooth' });
-  }); // we don't have to give dependency arr here, coz this will not work then.
+  });
 
   const topPlays = data?.slice(0, 5);
 
@@ -64,7 +64,7 @@ const TopPlay = () => {
   };
 
   const handlePlayClick = (song, i) => {
-    dispatch(setActiveSong({ song, data, i })); // passing the obj that includes 'song' we wana play, 'data' of all songs and 'index' of that song.
+    dispatch(setActiveSong({ song, data, i }));
     dispatch(playPause(true));
   };
 

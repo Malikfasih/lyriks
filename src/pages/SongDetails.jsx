@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'; // this will give us access to song id we have in url bar.
+import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { DetailsHeader, Error, Loader, RelatedSongs } from '../components';
 
@@ -10,10 +10,10 @@ import {
 
 const SongDetails = () => {
   const dispatch = useDispatch();
-  const { songid } = useParams(); // as we given the name of id to the route to this page as '/songs/:songid'
+  const { songid } = useParams();
   const { activeSong, isPlaying } = useSelector((state) => state.player);
   const { data: songData, isFetching: isFetchingSongDetails } =
-    useGetSongDetailsQuery({ songid }); // we can also pass 'songid' without {} it's a choice.
+    useGetSongDetailsQuery({ songid });
 
   const {
     data,
@@ -31,7 +31,7 @@ const SongDetails = () => {
   };
 
   const handlePlayClick = (song, i) => {
-    dispatch(setActiveSong({ song, data, i })); // passing the obj that includes 'song' we wana play, 'data' of all songs and 'index' of that song.
+    dispatch(setActiveSong({ song, data, i }));
     dispatch(playPause(true));
   };
 
