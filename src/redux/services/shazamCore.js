@@ -20,7 +20,7 @@ export const shazamCoreApi = createApi({
     prepareHeaders: (headers) => {
       headers.set(
         'X-RapidAPI-Key',
-        '45c1458c14msh5bcdd702723e1c7p11914ajsn949dab3a92ba'
+        import.meta.env.VITE_SHAZAM_CORE_RAPID_API_KEY
       );
       return headers; // return header after setting value to it.
     }, // this callback function will prepare header for us before each and every api call, so we don't have to provide options everytime.
